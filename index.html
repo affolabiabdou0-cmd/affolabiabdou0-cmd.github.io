@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AFFOLABI P. A. Karim — Développeur Web & Mobile · Parakou</title>
+<meta name="description" content="Portfolio de AFFOLABI P. A. Karim, développeur web et mobile basé à Parakou, Bénin. PHP, Laravel, Flutter, Python, Firebase.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --noir:#0a0a0a;--blanc:#f5f5f0;--violet:#7c4dff;--violet-dim:#3d2680;
+  --gris:#1a1a1a;--gris2:#2a2a2a;--gris3:#555;--texte:#b0b0a8;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Space Grotesk',sans-serif;background:var(--noir);color:var(--blanc);font-size:15px;line-height:1.6;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:58px;border-bottom:1px solid #1f1f1f;position:sticky;top:0;background:rgba(10,10,10,0.96);backdrop-filter:blur(10px);z-index:100;}
+.nav-logo{font-family:'Space Mono',monospace;font-size:15px;font-weight:700;color:var(--blanc);letter-spacing:0.05em;text-decoration:none;}
+.nav-logo span{color:var(--violet);}
+.nav-links{display:flex;gap:28px;}
+.nav-links a{font-size:12px;font-weight:500;color:var(--gris3);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.15s;}
+.nav-links a:hover{color:var(--blanc);}
+.nav-dot{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,0.2);}
+
+/* HERO */
+#hero{padding:80px 40px 64px;border-bottom:1px solid #1f1f1f;position:relative;overflow:hidden;min-height:90vh;display:flex;flex-direction:column;justify-content:center;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(124,77,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(124,77,255,0.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+.hero-glow{position:absolute;top:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(124,77,255,0.08) 0%,transparent 70%);pointer-events:none;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:11px;color:var(--violet);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+.hero-tag::before{content:'>';color:var(--violet);}
+.hero-name{font-size:clamp(36px,6vw,68px);font-weight:700;color:var(--blanc);line-height:1.0;letter-spacing:-2px;margin-bottom:8px;}
+.hero-name span{color:var(--violet);}
+.hero-role{font-family:'Space Mono',monospace;font-size:14px;color:var(--texte);margin-bottom:24px;letter-spacing:0.03em;}
+.hero-desc{font-size:15px;color:var(--texte);max-width:480px;line-height:1.8;margin-bottom:32px;}
+.hero-stack{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px;}
+.stack-pill{border:1px solid #2a2a2a;border-radius:4px;padding:5px 12px;font-size:12px;color:var(--gris3);font-family:'Space Mono',monospace;transition:all 0.15s;}
+.stack-pill:hover{border-color:var(--violet);color:var(--violet);}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary{background:var(--violet);color:#fff;border:none;border-radius:6px;padding:12px 24px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;letter-spacing:0.04em;text-decoration:none;display:inline-block;transition:opacity 0.15s;}
+.btn-primary:hover{opacity:0.85;}
+.btn-outline{background:transparent;border:1px solid #2a2a2a;color:var(--texte);border-radius:6px;padding:12px 24px;font-size:13px;font-weight:500;cursor:pointer;font-family:'Space Grotesk',sans-serif;text-decoration:none;display:inline-block;transition:all 0.15s;}
+.btn-outline:hover{border-color:var(--violet);color:var(--blanc);}
+
+/* SECTIONS */
+section{padding:64px 40px;border-bottom:1px solid #1f1f1f;}
+.sec-label{font-family:'Space Mono',monospace;font-size:11px;color:var(--violet);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;}
+.sec-title{font-size:28px;font-weight:700;color:var(--blanc);margin-bottom:6px;}
+.sec-sub{font-size:14px;color:var(--texte);margin-bottom:32px;}
+
+/* PROJETS */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+.proj-card{background:var(--gris);border:1px solid #242424;border-radius:12px;padding:22px;cursor:pointer;transition:border-color 0.2s,transform 0.2s;}
+.proj-card:hover{border-color:var(--violet);transform:translateY(-2px);}
+.proj-card.featured{border-color:var(--violet-dim);grid-column:1/-1;}
+.proj-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.proj-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.proj-status{font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:0.05em;}
+.proj-status.live{background:rgba(34,197,94,0.12);color:#22c55e;}
+.proj-status.wip{background:rgba(124,77,255,0.12);color:var(--violet);}
+.proj-status.demo{background:rgba(251,191,36,0.12);color:#fbbf24;}
+.proj-name{font-size:16px;font-weight:700;color:var(--blanc);margin-bottom:6px;}
+.proj-desc{font-size:13px;color:var(--texte);line-height:1.6;margin-bottom:14px;}
+.proj-pills{display:flex;flex-wrap:wrap;gap:6px;}
+.proj-pill{font-size:10px;padding:3px 8px;border-radius:4px;background:#111;border:1px solid #2a2a2a;color:var(--gris3);font-family:'Space Mono',monospace;}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+.svc-card{background:var(--gris);border:1px solid #242424;border-radius:10px;padding:20px;transition:border-color 0.15s;}
+.svc-card:hover{border-color:var(--violet);}
+.svc-icon{font-size:24px;margin-bottom:10px;}
+.svc-name{font-size:15px;font-weight:600;color:var(--blanc);margin-bottom:5px;}
+.svc-desc{font-size:12px;color:var(--texte);line-height:1.6;margin-bottom:12px;}
+.svc-price{font-size:12px;font-weight:700;color:var(--violet);font-family:'Space Mono',monospace;}
+
+/* CONTACT */
+.contact-wrap{background:var(--gris);border:1px solid #242424;border-radius:14px;padding:32px;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
+.contact-item{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#111;border:1px solid #242424;border-radius:8px;}
+.contact-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.contact-label{font-size:10px;color:var(--gris3);font-family:'Space Mono',monospace;text-transform:uppercase;letter-spacing:0.06em;}
+.contact-val{font-size:13px;color:var(--blanc);font-weight:500;margin-top:2px;}
+@media(max-width:600px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  #hero{padding:48px 20px;}
+  section{padding:48px 20px;}
+  .contact-grid{grid-template-columns:1fr;}
+  .proj-card.featured{grid-column:auto;}
+}
+
+/* FOOTER */
+footer{padding:32px 40px;text-align:center;border-top:1px solid #1f1f1f;}
+.footer-logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--violet);margin-bottom:8px;}
+.footer-copy{font-size:12px;color:var(--gris3);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">f4ntom<span>_kox</span></a>
+  <div class="nav-links">
+    <a href="#projets">Projets</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-dot" title="Disponible pour missions"></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-tag">Développeur · Parakou, Bénin</div>
+  <h1 class="hero-name">AFFOLABI<br>P. A. <span>Karim</span></h1>
+  <p class="hero-role">Web &amp; Mobile Developer · L3 Informatique de Gestion · IUT Parakou</p>
+  <p class="hero-desc">Je conçois des sites web et applications mobiles sur mesure pour les entreprises, écoles et structures locales au Bénin. Du code propre, livré dans les délais.</p>
+  <div class="hero-stack">
+    <span class="stack-pill">PHP / Laravel</span>
+    <span class="stack-pill">Flutter / Dart</span>
+    <span class="stack-pill">HTML / CSS / JS</span>
+    <span class="stack-pill">MySQL</span>
+    <span class="stack-pill">Python</span>
+    <span class="stack-pill">Firebase</span>
+    <span class="stack-pill">FedaPay</span>
+  </div>
+  <div class="hero-btns">
+    <a href="#contact" class="btn-primary">Me contacter</a>
+    <a href="https://wa.me/2290155133118" class="btn-outline" target="_blank">WhatsApp ↗</a>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets">
+  <div class="sec-label">// projets</div>
+  <div class="sec-title">Ce que j'ai construit</div>
+  <div class="sec-sub">Projets académiques, professionnels et personnels</div>
+  <div class="proj-grid">
+
+    <div class="proj-card featured">
+      <div class="proj-top">
+        <div class="proj-icon" style="background:rgba(124,77,255,0.15);">🤖</div>
+        <span class="proj-status wip">En cours · XPRIZE 2026</span>
+      </div>
+      <div class="proj-name">Dealyze — SaaS AI Platform</div>
+      <div class="proj-desc">Plateforme SaaS d'intelligence artificielle développée pour le hackathon XPRIZE AI 2026. Agent Deal Draft pour la génération automatique de devis professionnels via Groq API (llama-3.3-70b-versatile). Architecture multi-agents, Python 3.12, Ubuntu.</div>
+      <div class="proj-pills">
+        <span class="proj-pill">Python 3.12</span>
+        <span class="proj-pill">Groq API</span>
+        <span class="proj-pill">Ubuntu</span>
+        <span class="proj-pill">SaaS</span>
+        <span class="proj-pill">AI Agents</span>
+        <span class="proj-pill">llama-3.3-70b</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-top">
+        <div class="proj-icon" style="background:rgba(34,197,94,0.12);">🏢</div>
+        <span class="proj-status live">Livré</span>
+      </div>
+      <div class="proj-name">NOVOSYS — NOVOTEC</div>
+      <div class="proj-desc">Plateforme PHP MVC complète pour la société NOVOTEC. Gestion clients, devis, paiements, rendez-vous, ordres de travail, suivi services, notifications et rôles. 3 départements couverts (Fashion, Digital, Formations Pro).</div>
+      <div class="proj-pills">
+        <span class="proj-pill">PHP MVC</span>
+        <span class="proj-pill">MySQL</span>
+        <span class="proj-pill">XAMPP</span>
+        <span class="proj-pill">Ubuntu</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-top">
+        <div class="proj-icon" style="background:rgba(251,191,36,0.12);">📱</div>
+        <span class="proj-status live">Livré</span>
+      </div>
+      <div class="proj-name">QuickDelivery</div>
+      <div class="proj-desc">Application Flutter/Firebase de food delivery pour Android. Authentification, Firestore temps réel, gestion d'état Provider, cycle de vie complet de commande.</div>
+      <div class="proj-pills">
+        <span class="proj-pill">Flutter</span>
+        <span class="proj-pill">Firebase</span>
+        <span class="proj-pill">Provider</span>
+        <span class="proj-pill">Android</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-top">
+        <div class="proj-icon" style="background:rgba(239,68,68,0.12);">⛪</div>
+        <span class="proj-status live">En ligne</span>
+      </div>
+      <div class="proj-name">Bon Pasteur Gahnon</div>
+      <div class="proj-desc">Site de publications avec espace visiteurs, interface admin PHP et intégration dons FedaPay. Déployé sur bonpasteurgahnon.com via XAMPP.</div>
+      <div class="proj-pills">
+        <span class="proj-pill">PHP</span>
+        <span class="proj-pill">FedaPay</span>
+        <span class="proj-pill">JS</span>
+        <span class="proj-pill">MySQL</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-top">
+        <div class="proj-icon" style="background:rgba(14,165,233,0.12);">🏨</div>
+        <span class="proj-status demo">Documentation</span>
+      </div>
+      <div class="proj-name">MiaDjoa Hotel</div>
+      <div class="proj-desc">Système de réservation hôtelière complet avec documentation technique exhaustive. Architecture Laravel/MySQL, diagrammes UML inclus.</div>
+      <div class="proj-pills">
+        <span class="proj-pill">Laravel</span>
+        <span class="proj-pill">MySQL</span>
+        <span class="proj-pill">UML</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-top">
+        <div class="proj-icon" style="background:rgba(124,77,255,0.12);">🎽</div>
+        <span class="proj-status demo">Vitrine</span>
+      </div>
+      <div class="proj-name">Marathon Cotonou 2026</div>
+      <div class="proj-desc">Site vitrine dark &amp; athletic pour événement sportif. Single HTML file, design percutant et responsive.</div>
+      <div class="proj-pills">
+        <span class="proj-pill">HTML</span>
+        <span class="proj-pill">CSS</span>
+        <span class="proj-pill">JS</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="sec-label">// services</div>
+  <div class="sec-title">Ce que je propose</div>
+  <div class="sec-sub">Missions ponctuelles ou projets complets · Bénin et à distance</div>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-icon">🌐</div>
+      <div class="svc-name">Site vitrine</div>
+      <div class="svc-desc">Présentation professionnelle, responsive, optimisé mobile. Design sur mesure, livré clé en main en 3 semaines.</div>
+      <div class="svc-price">à partir de 60 000 FCFA</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">⚙️</div>
+      <div class="svc-name">Application web</div>
+      <div class="svc-desc">Tableau de bord, gestion métier, inscription en ligne, paiement Mobile Money / FedaPay intégré.</div>
+      <div class="svc-price">à partir de 120 000 FCFA</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">📱</div>
+      <div class="svc-name">App mobile</div>
+      <div class="svc-desc">Flutter Android/iOS. Authentification, base de données temps réel, notifications push.</div>
+      <div class="svc-price">à partir de 200 000 FCFA</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🔧</div>
+      <div class="svc-name">Maintenance</div>
+      <div class="svc-desc">Mises à jour, corrections, ajout de fonctionnalités sur site ou app existant.</div>
+      <div class="svc-price">8 000 – 20 000 FCFA/mois</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label">// contact</div>
+  <div class="sec-title">Travaillons ensemble</div>
+  <div class="sec-sub">Basé à Parakou · Disponible pour missions au Bénin et à distance</div>
+  <div class="contact-wrap">
+    <p style="font-size:14px;color:var(--texte);line-height:1.75;">Je suis actuellement disponible pour de nouvelles missions. Décrivez votre projet et je vous réponds sous 24h.</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-dot" style="background:#25D366;"></div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-val">+229 01 55 13 31 18</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-dot" style="background:#25D366;"></div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-val">+229 01 97 06 47 06</div>
+        </div>
+      </div>
+      <div class="contact-item" style="grid-column:1/-1;">
+        <div class="contact-dot" style="background:var(--violet);"></div>
+        <div>
+          <div class="contact-label">Localisation</div>
+          <div class="contact-val">Parakou, Borgou — Bénin · IUT Parakou, L3 Informatique de Gestion</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">f4ntom_kox</div>
+  <p class="footer-copy">© 2026 AFFOLABI P. A. Karim · Tous droits réservés · Parakou, Bénin</p>
+</footer>
+
+</body>
+</html>
